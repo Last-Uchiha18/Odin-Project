@@ -1,0 +1,76 @@
+Emmet ----------------------------------------------- 
+
+1 --> cmd+k followed by cmd+s opens the emmet actions page
+you can find all the action here. Can assign your on shortcuts here
+
+2 --> ctrl+cmd+r --> remove tag emmet action
+3 --> ctrl+cmd+w --> wrap the selected content in a tag
+
+4 --> selector.className creates the selector with that class.
+5 --> you can also add attributes like selector[attribueName]
+
+6 --> head>nav>ul and so on, will create something like below i.e. children
+
+<head>
+    <nav>
+        <ul></ul>
+    </nav>
+</head>
+
+7 --> header>nav>ul>li*3{List Item $}. For creating a list automatically
+
+<header>
+    <nav>
+        <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+        </ul>
+    </nav>
+</header>
+
+8 --> header+main+footer, will help in creating in siblings
+
+<header></header>
+<main></main>
+<foot></foot>
+
+9 --> Exercise
+
+<h1 class="name-1"></h1>
+<h1 class="name-2"></h1>
+<h1 class="name-3"></h1>
+
+SVG ------------------------------------------------
+
+What is it?
+
+1. Scale to any size, retain quality and no change in file size
+2. Can be modified programmatically
+3. Scalable Vector Graphics.
+4. use maths as opposed to grid of pixels as in tradition "rastor graphics"
+5. Defined using XML 
+6. Better for simple image, more complex the structure more ineffecient it is.
+Cause you have to store at last in XML
+
+So let's get familiar with some parts of SVG.
+
+1. viewBox --> the view bounds of your SVG
+2. class, id --> can be used to target an SVG element using JS and CSS
+3. circle, rect, path, text --> basic building blocks
+
+Two ways to embed SVG
+
+1. using link. like in img tag in html or background property in CSS
+    The issue with this is you cannot access SVG code
+2. using inline. This way you can access SVG code via CSS and JS.
+    Here the problem can be, webpage is less cacheable. Take time to render.
+
+Played around with SVG. Check out tutSVG.
+Learned about some basic animations, keyframe animation and how can i target my svg elements
+from CSS and JS
+
+Tables in HTML -------------------------------------
+
+
+
