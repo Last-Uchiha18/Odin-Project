@@ -84,3 +84,54 @@ some drawbacks if you do so:-
 3. Tables are not automatically responsive
 
 Nested tables are generally not recommended and they are hard to implement.
+
+Default Styles in CSS -------------------------------------
+
+The browser provides some default styling. It can lead to some
+minor inconsistencies. So we need to do CSS reset to ensure
+our styling is same accross all browsers.
+
+CSS Units -----------------------------------------------
+
+1. Absolute units --> Always same in any context.
+px is the only absolute unit you should use for your web 
+projects.
+
+2. Relative units --> The units which change based on their context.
+
+    a) em and rem -> both are relative units. Prefer rem.
+
+            em -> font-size of the element (or it's parent)
+            eg. if element font-size is 16 px. 4em = 64px
+
+            rem -> font-size of root element.
+
+            em can get complex, as it's size changes if the context changes
+
+    b) Viewport Units
+
+        The units vw and vh are relative to the user's viewport size.
+        1vh = 1% of user's viewport's height
+
+
+We use relative units to improve accessibility. as rem and em changes, px does not.
+(if user has changed the size of text of their browser)
+
+rem for font-size, px for everything else.
+
+Viewport Minimum(vmin) --> %age of vh or vw, whichever is smaller.
+Viewport Maximum(vman) --> %age of vh or vw, whichever is larger
+            |
+            |
+They can be used anywhere -> font-weight, border, padding, margins etc.
+
+font-size: calc(16px+ 0.5vh);
+something like this can be use to have relative font size
+
+A lot of things can be done using viewports.
+This was handy artcle https://css-tricks.com/fun-viewport-units/
+
+If you use a percentage for a width value, it will be percentage width of 
+the parent element. (just like em)
+
+
