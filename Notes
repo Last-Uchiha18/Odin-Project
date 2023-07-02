@@ -72,5 +72,15 @@ from CSS and JS
 
 Tables in HTML -------------------------------------
 
+When you should not use tables?
+
+You should use tables with tabular data and not use fot things like
+lay out your web page. One row for header, one row for column and such
 
 
+some drawbacks if you do so:- 
+1. Layout tables reduce accesibilty for visually impaired
+2. Tables produce tag soup
+3. Tables are not automatically responsive
+
+Nested tables are generally not recommended and they are hard to implement.
