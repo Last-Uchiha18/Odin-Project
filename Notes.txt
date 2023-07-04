@@ -1,0 +1,303 @@
+Emmet ----------------------------------------------- 
+
+1 --> cmd+k followed by cmd+s opens the emmet actions page
+you can find all the action here. Can assign your on shortcuts here
+
+2 --> ctrl+cmd+r --> remove tag emmet action
+3 --> ctrl+cmd+w --> wrap the selected content in a tag
+
+4 --> selector.className creates the selector with that class.
+5 --> you can also add attributes like selector[attribueName]
+
+6 --> head>nav>ul and so on, will create something like below i.e. children
+
+<head>
+    <nav>
+        <ul></ul>
+    </nav>
+</head>
+
+7 --> header>nav>ul>li*3{List Item $}. For creating a list automatically
+
+<header>
+    <nav>
+        <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+        </ul>
+    </nav>
+</header>
+
+8 --> header+main+footer, will help in creating in siblings
+
+<header></header>
+<main></main>
+<foot></foot>
+
+9 --> Exercise
+
+<h1 class="name-1"></h1>
+<h1 class="name-2"></h1>
+<h1 class="name-3"></h1>
+
+SVG ------------------------------------------------
+
+What is it?
+
+1. Scale to any size, retain quality and no change in file size
+2. Can be modified programmatically
+3. Scalable Vector Graphics.
+4. use maths as opposed to grid of pixels as in tradition "rastor graphics"
+5. Defined using XML 
+6. Better for simple image, more complex the structure more ineffecient it is.
+Cause you have to store at last in XML
+
+So let's get familiar with some parts of SVG.
+
+1. viewBox --> the view bounds of your SVG
+2. class, id --> can be used to target an SVG element using JS and CSS
+3. circle, rect, path, text --> basic building blocks
+
+Two ways to embed SVG
+
+1. using link. like in img tag in html or background property in CSS
+    The issue with this is you cannot access SVG code
+2. using inline. This way you can access SVG code via CSS and JS.
+    Here the problem can be, webpage is less cacheable. Take time to render.
+
+Played around with SVG. Check out tutSVG.
+Learned about some basic animations, keyframe animation and how can i target my svg elements
+from CSS and JS
+
+Tables in HTML -------------------------------------
+
+When you should not use tables?
+
+You should use tables with tabular data and not use fot things like
+lay out your web page. One row for header, one row for column and such
+
+
+some drawbacks if you do so:- 
+1. Layout tables reduce accesibilty for visually impaired
+2. Tables produce tag soup
+3. Tables are not automatically responsive
+
+Nested tables are generally not recommended and they are hard to implement.
+
+Default Styles in CSS -------------------------------------
+
+The browser provides some default styling. It can lead to some
+minor inconsistencies. So we need to do CSS reset to ensure
+our styling is same accross all browsers.
+
+CSS Units -----------------------------------------------
+
+1. Absolute units --> Always same in any context.
+px is the only absolute unit you should use for your web 
+projects.
+
+2. Relative units --> The units which change based on their context.
+
+    a) em and rem -> both are relative units. Prefer rem.
+
+            em -> font-size of the element (or it's parent)
+            eg. if element font-size is 16 px. 4em = 64px
+
+            rem -> font-size of root element.
+
+            em can get complex, as it's size changes if the context changes
+
+    b) Viewport Units
+
+        The units vw and vh are relative to the user's viewport size.
+        1vh = 1% of user's viewport's height
+
+
+We use relative units to improve accessibility. as rem and em changes, px does not.
+(if user has changed the size of text of their browser)
+
+rem for font-size, px for everything else.
+
+Viewport Minimum(vmin) --> %age of vh or vw, whichever is smaller.
+Viewport Maximum(vman) --> %age of vh or vw, whichever is larger
+            |
+            |
+They can be used anywhere -> font-weight, border, padding, margins etc.
+
+font-size: calc(16px+ 0.5vh);
+something like this can be use to have relative font size
+
+A lot of things can be done using viewports.
+This was handy artcle https://css-tricks.com/fun-viewport-units/
+
+If you use a percentage for a width value, it will be percentage width of 
+the parent element. (just like em)
+
+More Text Styles -----------------------------------------------
+
+Now on we use font-family, to avoid the scenario where the font
+that gets used is default HTML font cause its ugly.
+
+Another way is to use online font libraries. They usually give some API url and
+you can import it in your CSS. It maybe a link tag or import tag. Make sure to have 
+a fallback font in case you know, the API URL changes or it is down.
+
+Some Text Styles
+
+1. font-style --> italics and all.
+use <em> tag for emphasis and not making text italics</em>
+if you want your text to be italics use font-style
+
+2. letter-spacing --> change spacing between letters
+3. line-height --> space between lines in case of wrapping text.
+4. text-transform --> basically make text upper, lower case
+5. text-shadows
+
+ellipsis? I DON'T UNDERSTAND IT AS OF NOW
+
+More CSS Properties -----------------------------------
+
+shorthand properties --> These are the properties that if you set them you basically
+set multiple other properties related to it. Like background is one of them. Using it
+we can define background-color, background-image, background-repeat etc.
+
+1. background property --> so it sets color, image, size and origin all at once.
+if something is not defined it fallbacks to default value.
+
+there were 8 properties related to this. Damn, but i know the function of each one.
+
+2. Border property --> border and border-radius. Now border is less compliacted than background.
+It has three related properties; size, style and color.
+
+3. Box shadow --> adds a shadow effect around elements.
+if border radius is defined on the element, shadow also has radius.
+it has properties; offset-x, offset-y, blur-radius, spread-radius, color.
+(2 value, 3rd adds blur-radius, 4th adds spread-radius)
+
+4. Overflow --> what happens when the content inside an element is bigger than it can hold or contain.
+it has two properties (overflow-x, overflow-y)
+
+possible values are
+    a) clip -> like hidden but no scrolling allowed, not even programmatically. (clipped at margins)
+    b) hidden -> hides overflowing content.(programmatically scrolling is allowed) (cliiped at padding)
+    c) visible -> makes it visible.
+    d) scroll -> makes the content scrollable (from padding)
+    e) auto -> like visible if not overflown, like scroll if overflown. (from padding)
+
+Advanced Selectors -----------------------------------------------
+
+">" ; the child combinator
+"+" ; the adjacent sibling combinator
+"~" ; the general sibling combinator
+--------------------------------------------------------------------------------------------------------------------------
+
+A little detour; just got to know i skipped the foundations course. So I will get back there
+and learn some concepts which i don't know. So let's go.
+
+Starting off with Selectors:-
+
+1. Universal Selector "*"
+    It will select element of any type.
+
+2. Type Selector 
+
+    Just by using the name of the tag like div, p etc.
+
+    Eg. div {
+            color: red;
+        }
+
+3. Class Selector
+
+    Just by using a class name of the element. A class name can be used with multiple elements.
+    Syntax:     .class-Name {
+
+                }
+
+4. ID Selector 
+    The main difference between class and ID is it cannnot be repeated on a single page and each element can have only
+    one ID. Use IDs sparingly if at all.
+
+    Syntax: #id {
+
+            }
+    
+5. Grouping Selector
+    class names or ids or any other selector types separated by a comma.
+
+6. Chaining Selectors
+
+7. Descendant combinator
+
+    Now how this works is a element will be selected only if its parent is of that class.
+
+    Eg. Consider two classes .ancestor and .child
+
+        .ancestor .child {
+            this will select only those elements which have class child and whose parents have a class ancestor
+        }
+
+Lastly order in which you define style for a selector matters. Only the last one is applied.
+
+For an image not to lose proportion, use auto for height and adjust the width
+It is good to specify, in case the image is slow to load there won't be dramatic shifting of the other content after it 
+gets loaded
+
+External CSS -> Create a separated file and include with link tag
+Internal CSS -> Define in style tag in same HTML file
+Inline CSS -> Define in the tag itself.
+
+Inline CSS will override the other two methods.
+
+Specificity --->  ID > class > type
+
+more the number of class more is the Specificity
+combinators do not add to Specificity and Universal selector too.
+
+Finally to break all ties the rule which was last written is used.
+
+The Box Model-----------------------------------------
+
+So, today i will learn how to position the elements correctly. I never understood it properly
+But today it ends, let's do it.
+
+Firstly, every single things on a page is a box.
+
+padding --> between content and border
+margin --> between border and border (two different boxes)
+border --> adds space between margin and padding
+
+When two boxes have margin defined on them, its not like the margin will be the sum of two. Rather it will be the max of the two.
+if both positive
+if one margin is positive and other is negative then the resulting is one subtracted from other.
+if both negative then smaller of the two is the result.
+
+So the height calculated in browser is like = height+padding * 2+ border * 2
+
+But if you don't want this and want the height you defined. 
+Use box-sizing: border-box property.
+
+An inline element does not respect width and height.
+
+display: inline-block --> use it to have some properties of in-line and some of block.
+like height and width will be respected but the item will break into new line.
+Margin, border and padding will cause other content to be pushed away.
+
+displays covered till now 
+1. Block
+2. inline
+3. inline-block
+
+auto value can be used to center an element horizontally.
+it has to be used with width, otherwise auto will asign zero value and it will have no affect.
+
+"will not center elements vertically".
+
+
+
+
+
+
+
+
