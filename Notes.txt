@@ -294,6 +294,91 @@ it has to be used with width, otherwise auto will asign zero value and it will h
 
 "will not center elements vertically".
 
+Flex Box------------------------------------------------
+
+Flex container and flex item
+
+    Flex container is any element that has display property as flex defined on it.
+    Any element that is inside a element with flex display property is a flex item.
+
+    Now an element can both be a flex container and flex item.
+
+Flex shorthand: So flex has three properties
+    a) Flex-grow
+    b) Flex-shrink
+    c) Flex-basis
+
+so when you define flex:1;
+it is like Flex-grow: 1, Flex-shrink: 1, Flex-basis: 0
+
+What happens is the elements grow and shrink in size according to the size of the container.
+(on defining display: flex)
+
+Now,
+    Flex-grow: This defines the factor by which your element will grow. If on one element it is defined as two, this means 
+    it will grow twice the size of others.
+
+    Flex-shrink: Same like flex-grow just when its shrinking and not growing.
+    Only applies when the size of all flex items is larger than their container.
+    Default value is 1
+
+    Lastly,
+    Flex-basis: Defines the baseline from which other properties start. It means the element will have this width by default or somethinglike this.
+    Default value is 0. And if we define auto the items will respect the width define on it.
+
+
+    flex: initial --> flex: 0 1 auto
+    flex: none --> flex: 0 0  auto
+    flex: auto --> flex: 1 1 autp
+    flex: <+ve number> --> flex: <+ve number> 1 0
+
+    By default flex items won't shrink below their minimum content size.
+
+Axes ------------------------------------------------
+
+Now we can arrange flex items in two directions, vertical and horizontal.
+This can be set using "flex-direction" property and some rules change depending on the direction you are working in.
+Default is horizontal direction.
+
+No matter what's the direction, think of your flex items as having two axes; one main axis and other cross axis.
+
+main-axis --> vertical in vertical, simple as that.
+
+One thing to note is, flex:1 won't work on when stacked vertically.
+Since the flex-basis will be 0 and calculations start from flex basis, and
+the div have by default 0 height and for an element to fill zero height they need not have any height at all.
+
+Therefore we need to use, flex-basis: auto. this will tell to use the default height given to the flex element.
+Flex-basis refer to height when flex-direction is vertical (kind of obvious).
+
+What happens in horizontal is block level elements default to the width of their parents
+That's why we have no issues horizontally. But in vertical the same elements have height equal to
+the content, and if there is none it will be zero. Therefore there's a complexity in using column
+flex-direction.
+
+justify-content --> justifies item along the main axis.
+aign-items --> aligns items along the cross axis.
+align-self --> this property is applied to the flex item and not the container.
+allows you to change alignment of one child accross the cross axis.
+
+Gap is a property you can define on the container and it adds space between the flex items. handy!
+
+You can use flex-wrap: wrap;  when flex items are more than the container can hold.
+
+Woah! Today We learned a really important topic, FLEX BOX.
+
+Some additional concepts:-
+
+1. Primary axis: Children will be bunched up at the start of the container.
+2. Cross axis: Children will stretch out to fill the container.
+
+So flex-basis gives the hypothetical size. If flex items are bigger than this hypothetical size, flex shrink will
+come into picture since the items need to shrink and vice verca.
+But here's a catch, the flex shrink allows items to shrink only upto a particular size, after that it overflows.
+This is the "min-width". To solve this we can set "min-width: 0" on the flex child.
+
+Auto margin will gobble up the extra space and apply it to the element's margin.
+
 
 
 
