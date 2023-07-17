@@ -379,10 +379,300 @@ This is the "min-width". To solve this we can set "min-width: 0" on the flex chi
 
 Auto margin will gobble up the extra space and apply it to the element's margin.
 
+If we add two numbers, the result is a number.
+If one of the number is a string, the result is a String with two of them concatenated.
+
+** JS interpreter works from left to right!
+
+** JavaScript will convert strings to numbers in all numeric operation! (except +)
+
+NaN is not a number. like 10 / "Apple" will give NaN.
+
+But the typeof NaN is a number.
+
+We can create objects out of JS numbers using "new" operator.
+
+To convert String to Integer use --> Number(str)
+
+"+", when used as an unary operator does nothng but act
+just like Nmber(...).
+
+like, let a = "3", b = "5"
+
+    let c = Number(3) + Number(5)
+    let d = +3 + +5
+    c === d
+
+Increment and decrement operator can only be used with a variable
+and not a number.
+
+like ++a (a being a variable), ++1: the latter will give an error
+
+null becomes 0 after numeric conversion.
+undefined becomes NaN after numeric conversion.
+
+\ escape characters
+
+`` use them to define a string if you want some to be evalauted in the expression.
+`Hello, ${user.name}`
+
+`` these are called template literals and they respect the line break in code.
+\n use this to line break in "" these strings
+
+str.slice(1, 4) same a python's str[1:4]
+works with negs too just like python.
+.substring same as slice, does not support negs.
+.substr() same as slice but second parameter is length of slice not index.
+but it supports negs.
+
+All String Methods return a new string since strings are immutable types.
+
+str.charAt(2) is same as str[2] in python. Tho you can use the same in JS too i.e. str[2]
+str.charCodeAt(2) is same as ord(str[2])
+
+split(" ") works same as python.
+
+the equality check "==" for undefined and null is defined such that, without any conversion,
+they equal each other and don't equal anything else.
+
+Precedence of && is higher than ||.
+
+alert(); does not return anything.
+
+In switch case, === is used for checking equality.
+
+HTML represents initial page while DOM represents current page content.
+DOM is basically tree like structure of the HTML tage.
+
+Functions that are part of objects (i.e class or structs type) are called methods.
+Functions are always hoisted so you can call it anywhere, unlike Python.
+
+When using something like addEventListener("name", functionName)
+The functionName is not followed by parantheses, and is called automatically when the event happens.
+
+parameter is what is inside the function declaration. Argument is what we send when calling the function.
+
+Callbacks are functions which are passed as function arguments and are expected
+to be called later (probably in that function).
 
 
+Function declaration:-
+    function name() {
+
+    }
+
+Function expression:-
+    let a = function() {
+
+    }
+
+Same as swift concept of lazy var, it is created when called
+
+sayHi("John"); // Hello, John
+
+function sayHi(name) {
+  alert( `Hello, ${name}` );
+}
+
+Above one will work
+
+sayHi("John"); // error!
+
+let sayHi = function(name) {  // (*) no magic any more
+  alert( `Hello, ${name}` );
+};
+
+Above one will not, since it is not created yet.
 
 
+Global execution context and Function execution context.
+Latter one is created everytime a function is called and that function is pushed on top of call stack.
+
+Now the stack has a fixed size; if exceeded results in stack overflow error.
+
+Understanding Errors:--
+    1. Reference Error -> When one refers to a variable not defined in the current scope.
+    2. Syntax Error
+    3. Type Error -> Wrong argument to a function. Changing a const variable. Using value in an inappropriate way.
+
+Serializable object --> One that can be deconstructed and passed between systems/languages. And can later be constructed again.
+
+pop() -> pop from last.
+push() -> append in array.
+shift() -> pop from start.
+unshift() -> add at start.
+
+Moving on to using JS to manipulate DOM.
+HTML parsed by browser -> Gives DOM -> Which has nodes -> Which are objects with many properties and methods.
+We can these properties and methods to manipulate them.
+
+1. Query Selector:-
+    a. element.querySelector(selector) -> gives first match
+    b. element.querySelectorAll(selectors) -> gives references to all nodes.
+       This returns nodeList which is not array. We can convert it into array using spread operator or Array.from()
+
+2. Element Creation:- 
+    Used to create elements. This merely creates it (in the DOM) and we can add styles and all and then add it to our HTML.
+
+3. Add Elements:-
+    parentNode.appendChild(childElement) -> adds as the last child of the parent
+    parentNode.insertBefore(childElement, referenceNode)
+
+4. Remove Elements:-
+    parentNode.removeChild(child) -> removes and returns a reference to the child.
+
+We can get the style object using element.style and use to define several inline CSS properties.
+Keep in mind that access properties use camel Case for hyphen including properties.
+
+Example -> for border-width; use element.borderWidth = 10px;
+And if property is a keyword in JS, append the property with 'css'.
+
+5. Editing attributes:- 
+
+    getAttribute()
+    setAttribute()
+    removeAttribute()
+
+6. Add/remove class -> element.classList.toggle(className). If its there it removes else it add.
+
+7. Adding text content -> element.textContent = "ahaha";
+
+8. Adding HTML element -> element.innerHTML = "<span> Fuck <span/>"
 
 
+NOTE -->>> Keep in mind the JS does not alter HTML, just the DOM and JS changes what the browser renders.
+
+if using JS in HTML, make sure to add it at end of the file. Your JS will run, and then DOM elements will be created. Resulting in 
+many DOM manipulating methods not available.
+
+Callbacks are nothing but function (as they are objects in JS) being passed around as parameters of other object.
+
+Browsers capture in the event starting from the top i.e body tag and then it goes outward (bubble up) firing those events.
+There's a third parameter on add event listener i.e. capture which we can use to tell whther to run the callback function on
+capture down or bubble up.
+
+e.stopPropagation() can be used to stop bubble up.
+
+Property names in objects can be string or symbols, other types are converted to string automatically. And we can also use reserved
+keywords as property name like for, return etc.
+
+We can use "in" keyword to check if there's a property in our object.
+like "mom" in house
+
+The properties of objects are ordered in a special way.
+if the property names are number then they are sorted, otherwise they remain in creation order.
+Basically if they are integer properties. Integer properties are those whose string and integer value are both same.
+
+Back to CSS----------------------------------------------------------------------------------------------------------------------------
+
+Descendant combinator selects are the childs of the parent one, no matter how deeply nested they are.
+But we want to select only the next child and not the grandchild and so on.
+We can use child combinator '>'.
+
+'+' sibling combinator selects only the next element, with the same level of indentation (if present).
+keep in mind it has to just next. Nothing should be between the two.
+
+'~' to select all siblings
+
+Pseudo Classes -- are prefixed with a colon.
+Some of them are:-
+
+    a. Dynamic and User interaction Pseudo-classes
+        1. :hover --> when hovering mouse pointer.
+        2. :active --> when an element is clicked.
+        3. :focus --> when clicked or keyboard used.
+        4. :link --> to all links.
+        5. :visited --> if links are visited.
+    
+    b. Structural Pseudo-classes
+        1. :root --> to apply rules everywhere, it is the top element.
+        2. :first-child --> matches first child
+        3. :last-child --> matches last child
+        4. :empty --> one with no children
+        5. :only-child --> one with no siblings.
+        6. :nth-child
+
+        .myList:nth-child(5) --> selects 5th child
+        .myList:nth-child(3n) --> selects every 3rd child child
+        .myList:nth-child(3n+3) --> selects every 3rd child, begining with third.
+
+Difference between :root and html. :root has greater specificity than html, it being a pseudo class.
+
+Pseudo Elements -- prefixed with ::
+
+    ::marker --> to customize styling of your lists.
+    ::first-letter
+    ::first-line
+    ::selection --> to apply style to what happens when user selects text
+    ::before and ::after --> add extra elements to the page.
+
+Attribute Selectors.
+    Same specificity as classes and pseudo classes
+    Three ways to select attributes (these are what's inside the opening html tag)
+    1. [attribute Name] --> [src]. Selects all element that has a src attribute.
+    2. selector[attribute name] --> img[src]. Selects all image elements which have a src attribute.
+    3. [attribute=value] --> selects element with this attribute and value
+
+    Regex
+    attribute^="value" --> starts with
+    attribute$="value" --> ends with
+    attribute*="value" --> contains
+
+!important, the only way it can be over ridden is by other !important.
+
+CSS Positioning --> This has always been elusive to me. Let's get it done this time.
+
+Avoid absolute positioning. Use fixed position for elements like header, if is relative to user's viewport, so even if they scroll it will remain
+where it is.
+
+Relative --> relative to itself. Removes the element from the normal flow of the document.
+so if we give top: 10px; it will shift 10px down from where it normally would have been.
+This opens up two avenues --> 1. absolute positioning 2. z-index
+
+Absolute --> position is relative to the element having position relative, takes out of the document flow and place element exactl where you want.
+
+CSS functions
+1. max --> evident from name
+2. min --> evident from name
+3. calc --> to perform some calculations
+4. clamp() --> takes three arguments i.e. the smalles value, the ideal value, the largest value.
+
+Variables do not work inside media and container queries. Though you can define them there like:-
+
+@media () {
+    :root {
+        --var-name: value;
+    }
+}
+
+something like this.
+We can use JS function to get and set property
+getPropertyValue('--my-var'), setProperty('--my-var', 16px)
+
+Moving on to forms....
+
+Form element is used. It's like a div and has all the inputs user will do.
+It has two attributes. One action which tells us where to send the data, where it will be processed and second is method.
+get request or post request.
+
+name attribute (on input element) is used in back-end to extract data from the json sent by the form.
+
+Field set is used to group common fields together in a form. Legend is used to give title to the field set.
+
+CSS Grid -------------------------------------------------
+
+grid-template: no. of rows/ no. of columns
+Above one is shorthand for the below ones.
+
+grid-template-rows: no. of rows
+grid-template-columns: no. of columns
+
+Now in case we have less grid rows and cols but more items, there is concept of implicit grid.
+where in the grid automatically extends.
+We can set the size for this automatically extended item using
+1. grid-auto-rows
+2. grid-auto-columns
+
+We can use gap (same as flex). But it is shorthand in this case for
+---> column-gap and row-gap
 

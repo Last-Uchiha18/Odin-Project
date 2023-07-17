@@ -10,12 +10,37 @@
 </head>
 
 <body>
-    <div class="one">
-        DIV ONE
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container">
+        <div class="content">
+        This is the glorious text-content!
+        </div>
     </div>
-    <div class="two">
-        DIV TWO
-    </div>
+
+    <script>
+        let object = document.querySelector('#container');
+        let paraElement = document.createElement('p');
+        paraElement.style.cssText = 'color: red';
+        paraElement.textContent = "Hey I'm Red";
+        object.appendChild(paraElement);
+        let headerElement = document.createElement('h3');
+        headerElement.style.cssText = 'color: blue';
+        headerElement.textContent = "I'm a blue h3!";
+        object.appendChild(headerElement);
+
+        let divElement = document.createElement('div');
+        divElement.style.cssText = "border-color: black; background-color: pink;";
+        let headerElement1 = document.createElement('h1');
+        headerElement1.textContent = "I'm in a div";
+        let anotherP = document.createElement('p');
+        anotherP.textContent = "Me too";
+        
+        divElement.appendChild(anotherP);
+        divElement.appendChild(headerElement1);
+        object.appendChild(divElement);
+    </script>
 </body>
 
 </html>
